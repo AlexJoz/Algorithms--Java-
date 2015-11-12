@@ -51,7 +51,7 @@ public class WordNet {
 
     // take care of all nouns
     private void takeSynsets(In one) {
-        Bag<Integer> nounBag = new Bag<>();
+        Bag<Integer> nounBag;
         while (!one.isEmpty()) {
             String[] ins = one.readLine().split(",");
             int id = Integer.parseInt(ins[0]);

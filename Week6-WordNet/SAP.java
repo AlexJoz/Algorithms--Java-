@@ -44,20 +44,20 @@ public class SAP {
         Jbfs bfs = new Jbfs(graph, v, w);
         return bfs.getA();
     }
-    
+
     private Iterable<Integer> toIterable(int v) {
         Queue<Integer> toQueue = new Queue<>();
         toQueue.enqueue(v);
         return toQueue;
     }
-    
+
     private void jCheck(Iterable<Integer> vs) {
-        for(int v: vs)
+        for (int v : vs)
             jCheck(v);
     }
 
     private void jCheck(int v) {
-        if(v >= graph.V())
+        if (v >= graph.V())
             throw new IndexOutOfBoundsException();
     }
 }
@@ -68,7 +68,7 @@ class Jbfs {
     private int a = -1;
     private int minL = -1;
 
-    Jbfs(Digraph g, Iterable<Integer> v, Iterable<Integer> w) {
+    Jbfs(final Digraph g, final Iterable<Integer> v, final Iterable<Integer> w) {
         vertexes = g.V();
         this.v = new BreadthFirstDirectedPaths(g, v);
         this.w = new BreadthFirstDirectedPaths(g, w);
@@ -88,7 +88,7 @@ class Jbfs {
         return (this.v.hasPathTo(t) && this.w.hasPathTo(t));
     }
 
-    private int getL(int t) {
+    private int getL(final int t) {
         return this.v.distTo(t) + this.w.distTo(t);
     }
 
